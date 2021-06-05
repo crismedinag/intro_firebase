@@ -1,0 +1,30 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="mb-4">{{ titulo }}
+            <div *ngIf="loading" class="spinner-border float-right" role="status"></div>
+          </h3>
+          <form mt-4 [formGroup]=form_empleado (ngSubmit)="agregarOeditar()">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" formControlName="nombre" placeholder="Name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control form-control-lg" formControlName="apellido" placeholder="Apellido">
+              </div>
+            </div>
+            <input type="text" class="form form-control form-control-lg mt-3" formControlName="documento" placeholder="Documento">
+            <input type="number" class="form form-control form-control-lg mt-3" formControlName="salario" placeholder="Salario">
+            <div class="mt-5">
+              <button type="text" class="btn btn-secondary btn-lg mr-3" routerLink="/inicio">Volver</button>
+              <button type="submit" class="btn btn-dark btn-lg">Aceptar</button>
+            </div>
+            <span *ngIf="guardado && form_empleado.invalid" class="badge badge-danger mt-3">Todos los campos son obligatorios</span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
